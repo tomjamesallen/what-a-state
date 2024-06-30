@@ -1,13 +1,16 @@
 {
   "name": "what-a-state",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "preconstruct build",
+    "release": "yarn build && npm publish"
   },
   "packageManager": "yarn@4.3.1",
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
     "@jest/globals": "^29.7.0",
+    "@preconstruct/cli": "^2.8.4",
     "@types/babel__preset-env": "^7",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
@@ -22,5 +25,15 @@
     "prettier": "2.8.8",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
-  }
+  },
+  "preconstruct": {
+    "packages": [
+      "."
+    ],
+    "entrypoints": [
+      "index.{js,ts}"
+    ]
+  },
+  "main": "dist/what-a-state.cjs.js",
+  "module": "dist/what-a-state.esm.js"
 }
